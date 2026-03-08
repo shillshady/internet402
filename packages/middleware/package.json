@@ -1,0 +1,36 @@
+{
+  "name": "@internet402/middleware",
+  "version": "0.1.0",
+  "description": "Server-side HTTP 402 payment gating middleware for Internet402",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./express": {
+      "import": "./dist/adapters/express.js",
+      "types": "./dist/adapters/express.d.ts"
+    },
+    "./hono": {
+      "import": "./dist/adapters/hono.js",
+      "types": "./dist/adapters/hono.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@internet402/types": "^0.1.0",
+    "@internet402/verifier": "^0.1.0"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.87.0",
+    "@solana/spl-token": "^0.3.8"
+  },
+  "license": "MIT"
+}

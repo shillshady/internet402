@@ -1,0 +1,27 @@
+{
+  "name": "@internet402/verifier",
+  "version": "0.1.0",
+  "description": "Solana transaction verifier for Internet402 payments",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@internet402/types": "^0.1.0"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.87.0",
+    "@solana/spl-token": "^0.3.8"
+  },
+  "license": "MIT"
+}

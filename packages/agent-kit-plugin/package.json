@@ -1,0 +1,34 @@
+{
+  "name": "@internet402/agent-kit-plugin",
+  "version": "0.1.0",
+  "description": "Solana Agent Kit plugin for automatic Internet402 payments",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@internet402/client": "^0.1.0",
+    "@internet402/types": "^0.1.0"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.87.0",
+    "@solana/spl-token": "^0.3.8",
+    "solana-agent-kit": ">=1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "solana-agent-kit": {
+      "optional": true
+    }
+  },
+  "license": "MIT"
+}
