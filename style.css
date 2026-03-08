@@ -238,17 +238,6 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(oklch(0.746 0.16 232.661 / 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.746 0.16 232.661 / 0.025) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
-}
-
 .hero-glow {
   position: absolute;
   top: 30%;

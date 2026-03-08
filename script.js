@@ -1,108 +1,116 @@
 (() => {
-  // ===== PARTICLE WAVE BACKGROUND =====
+  // ===== SHOOTING STAR PARTICLE SYSTEM =====
   const canvas = document.getElementById('particleCanvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
-    let width, height, particles, animId;
-    const PARTICLE_COUNT = 80;
-    const CONNECTION_DIST = 120;
-    const MOUSE_RADIUS = 200;
-    const mouse = { x: -9999, y: -9999 };
+    let width, height;
+    const stars = [];
+    const STAR_COUNT = 60;
+    const SHOOTING_STAR_CHANCE = 0.015;
+    const shootingStars = [];
 
     function resize() {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     }
 
-    function createParticles() {
-      particles = [];
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push({
+    function createStars() {
+      stars.length = 0;
+      for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 1.5 + 0.5,
-          baseAlpha: Math.random() * 0.3 + 0.1,
+          radius: Math.random() * 1.2 + 0.3,
+          alpha: Math.random() * 0.4 + 0.1,
+          twinkleSpeed: Math.random() * 0.02 + 0.005,
+          twinkleOffset: Math.random() * Math.PI * 2,
         });
       }
     }
 
-    function drawParticles() {
+    function spawnShootingStar() {
+      const angle = Math.PI / 6 + Math.random() * Math.PI / 6;
+      const speed = 8 + Math.random() * 12;
+      shootingStars.push({
+        x: Math.random() * width * 1.2 - width * 0.1,
+        y: -10 - Math.random() * 100,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1,
+        decay: 0.008 + Math.random() * 0.012,
+        length: 40 + Math.random() * 80,
+        width: 1 + Math.random() * 1.5,
+        hue: Math.random() > 0.7 ? 232 : (Math.random() > 0.5 ? 163 : 286),
+      });
+    }
+
+    let time = 0;
+
+    function draw() {
       ctx.clearRect(0, 0, width, height);
+      time += 0.016;
 
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-
-        // Update position
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Wrap around edges
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-
-        // Mouse interaction — gentle repulsion
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MOUSE_RADIUS) {
-          const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS * 0.02;
-          p.vx += dx / dist * force;
-          p.vy += dy / dist * force;
-        }
-
-        // Dampen velocity
-        p.vx *= 0.99;
-        p.vy *= 0.99;
-
-        // Draw particle
+      // Static twinkling stars
+      for (const s of stars) {
+        const flicker = Math.sin(time * s.twinkleSpeed * 60 + s.twinkleOffset) * 0.5 + 0.5;
+        const alpha = s.alpha * (0.4 + flicker * 0.6);
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(148, 190, 230, ${p.baseAlpha})`;
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200, 210, 230, ${alpha})`;
         ctx.fill();
-
-        // Draw connections
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const cdx = p.x - p2.x;
-          const cdy = p.y - p2.y;
-          const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
-
-          if (cdist < CONNECTION_DIST) {
-            const alpha = (1 - cdist / CONNECTION_DIST) * 0.08;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(148, 190, 230, ${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
       }
 
-      animId = requestAnimationFrame(drawParticles);
+      // Spawn shooting stars
+      if (Math.random() < SHOOTING_STAR_CHANCE) {
+        spawnShootingStar();
+      }
+
+      // Draw shooting stars
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const ss = shootingStars[i];
+        ss.x += ss.vx;
+        ss.y += ss.vy;
+        ss.life -= ss.decay;
+
+        if (ss.life <= 0 || ss.x > width + 100 || ss.y > height + 100) {
+          shootingStars.splice(i, 1);
+          continue;
+        }
+
+        const tailX = ss.x - (ss.vx / Math.sqrt(ss.vx * ss.vx + ss.vy * ss.vy)) * ss.length * ss.life;
+        const tailY = ss.y - (ss.vy / Math.sqrt(ss.vx * ss.vx + ss.vy * ss.vy)) * ss.length * ss.life;
+
+        const grad = ctx.createLinearGradient(ss.x, ss.y, tailX, tailY);
+        const baseAlpha = ss.life * 0.7;
+        grad.addColorStop(0, `oklch(0.85 0.12 ${ss.hue} / ${baseAlpha})`);
+        grad.addColorStop(0.3, `oklch(0.7 0.08 ${ss.hue} / ${baseAlpha * 0.5})`);
+        grad.addColorStop(1, `oklch(0.5 0.04 ${ss.hue} / 0)`);
+
+        ctx.beginPath();
+        ctx.moveTo(ss.x, ss.y);
+        ctx.lineTo(tailX, tailY);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = ss.width * ss.life;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        // Bright head glow
+        ctx.beginPath();
+        ctx.arc(ss.x, ss.y, ss.width * ss.life * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = `oklch(0.95 0.05 ${ss.hue} / ${ss.life * 0.6})`;
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
     }
 
     resize();
-    createParticles();
-    drawParticles();
+    createStars();
+    draw();
 
     window.addEventListener('resize', () => {
       resize();
-      createParticles();
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-
-    window.addEventListener('mouseleave', () => {
-      mouse.x = -9999;
-      mouse.y = -9999;
+      createStars();
     });
   }
 
