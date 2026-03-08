@@ -17,6 +17,10 @@
     "./hono": {
       "import": "./dist/adapters/hono.js",
       "types": "./dist/adapters/hono.d.ts"
+    },
+    "./fastify": {
+      "import": "./dist/adapters/fastify.js",
+      "types": "./dist/adapters/fastify.d.ts"
     }
   },
   "files": ["dist"],

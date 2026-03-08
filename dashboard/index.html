@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — INTERNET402</title>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="../" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to site
+      </a>
+      <h1 class="header-title">INTERNET402 DASHBOARD</h1>
+      <div class="header-badge">DEMO</div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Stats Row -->
+    <section class="stats-row" id="statsRow"></section>
+
+    <!-- Revenue Chart -->
+    <section class="card chart-card">
+      <div class="card-header">
+        <h2 class="card-title">Revenue — Last 7 Days</h2>
+        <span class="card-subtitle">SOL earned per day</span>
+      </div>
+      <div class="chart" id="revenueChart"></div>
+    </section>
+
+    <!-- Recent Payments -->
+    <section class="card">
+      <div class="card-header">
+        <h2 class="card-title">Recent Payments</h2>
+        <span class="card-subtitle" id="paymentCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table class="table" id="paymentsTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Agent Address</th>
+              <th>Endpoint</th>
+              <th class="align-right">Amount</th>
+              <th>Token</th>
+              <th>TX Signature</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Endpoints -->
+    <section class="card">
+      <div class="card-header">
+        <h2 class="card-title">Endpoints</h2>
+        <span class="card-subtitle" id="endpointCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table class="table" id="endpointsTable">
+          <thead>
+            <tr>
+              <th>Path</th>
+              <th class="align-right">Price</th>
+              <th>Token</th>
+              <th class="align-right">Total Hits</th>
+              <th class="align-right">Revenue</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>Internet402 Protocol</span>
+    <span class="footer-dot">·</span>
+    <span>Service Provider Analytics</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

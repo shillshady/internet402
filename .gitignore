@@ -3,3 +3,7 @@ node_modules
 dist
 .DS_Store
 *.tgz
+*.png
+!logo.png
+!favicon.png
+.playwright-mcp/

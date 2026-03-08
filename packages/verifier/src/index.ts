@@ -7,6 +7,7 @@ import type { ReplayStore } from './replay-store.js';
 export { verifySolPayment } from './verify-sol.js';
 export { verifySplPayment } from './verify-spl.js';
 export { MemoryReplayStore } from './replay-store.js';
+export { RedisReplayStore } from './redis-store.js';
 export type { ReplayStore } from './replay-store.js';
 
 export async function verifyPayment(
