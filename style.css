@@ -533,12 +533,12 @@ h2 {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
-  color: var(--zinc-600);
-  transition: color 0.3s;
+  transition: opacity 0.3s;
+  opacity: 0.4;
 }
 
 .marquee-item:hover {
-  color: var(--zinc-400);
+  opacity: 0.8;
 }
 
 .marquee-item span {
@@ -546,12 +546,20 @@ h2 {
   font-size: 18px;
   letter-spacing: 0.08em;
   white-space: nowrap;
+  color: var(--zinc-400);
 }
 
 .compat-logo {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.8);
+  transition: filter 0.3s;
+}
+
+.marquee-item:hover .compat-logo {
+  filter: grayscale(0) brightness(1);
 }
 
 @keyframes marquee-scroll {
