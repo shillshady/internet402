@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INTERNET402 — The Payment Layer for the Agent Internet</title>
+  <meta name="description" content="Solana-native HTTP 402 payment protocol for AI agents. Pay per request. On-chain. Instant." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta property="og:title" content="INTERNET402" />
+  <meta property="og:description" content="The internet had a missing layer. We built it." />
+  <meta property="og:image" content="logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="favicon.png" alt="Internet402" class="nav-logo-img" />
+        <span class="nav-logo">INTERNET402</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">ABOUT</a>
+        <a href="#protocol">PROTOCOL</a>
+        <a href="#tokenomics">TOKENOMICS</a>
+        <a href="#ecosystem">ECOSYSTEM</a>
+        <a href="https://x.com/internet402" target="_blank" rel="noopener" class="btn-nav">TWITTER</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">ABOUT</a>
+    <a href="#protocol">PROTOCOL</a>
+    <a href="#tokenomics">TOKENOMICS</a>
+    <a href="#ecosystem">ECOSYSTEM</a>
+    <a href="https://x.com/internet402" target="_blank" rel="noopener">TWITTER</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content" data-animate="fade-up">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        HTTP 402 — PAYMENT REQUIRED
+      </div>
+      <h1 class="hero-title">
+        THE INTERNET<br/>HAD A<br/>MISSING LAYER.
+      </h1>
+      <p class="hero-sub">We built it.</p>
+      <div class="hero-logo-wrap">
+        <img src="logo.png" alt="Internet402 Infinity" class="hero-logo" />
+      </div>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">
+          <span>BUY $INT402</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+        <a href="#about" class="btn-ghost">LEARN MORE</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="label">THE PROBLEM</span>
+        <h2>HTTP 402:<br/>PAYMENT REQUIRED</h2>
+      </div>
+      <div class="about-grid" data-animate="fade-up" data-delay="200">
+        <div class="about-text">
+          <p class="text-lg">This status code has existed since <span class="text-accent">1991</span>.</p>
+          <p class="text-lg">It was always meant to be used.</p>
+          <p class="text-lg dim">It never was.</p>
+        </div>
+        <div class="about-text">
+          <p class="text-md dim">The internet was built for information. Not value. Not agents. Not the machine economy.</p>
+          <p class="text-md accent-line">Internet402 is the payment layer the internet always needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section section-dark" id="stats">
+    <div class="container">
+      <div class="stats-grid" data-animate="fade-up">
+        <div class="stat-card">
+          <span class="stat-value" data-count="402">0</span>
+          <span class="stat-label">STATUS CODE</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">~400<span class="stat-unit">ms</span></span>
+          <span class="stat-label">SETTLEMENT TIME</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">0<span class="stat-unit">%</span></span>
+          <span class="stat-label">TAX</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">∞</span>
+          <span class="stat-label">AGENTS SUPPORTED</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="label">WHAT WE BUILT</span>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card glass" data-animate="fade-up" data-delay="0">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <span class="feature-num">01</span>
+          <h3>AGENT PAYMENTS</h3>
+          <p>Any agent. Any service. Pay per request, on-chain, instant. No middlemen. No friction. No permission required.</p>
+        </div>
+        <div class="feature-card glass" data-animate="fade-up" data-delay="100">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <span class="feature-num">02</span>
+          <h3>OPEN ACCESS</h3>
+          <p>No API keys. No subscriptions. No gatekeepers. 402 is the key. Access is automatic.</p>
+        </div>
+        <div class="feature-card glass" data-animate="fade-up" data-delay="200">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <span class="feature-num">03</span>
+          <h3>SOLANA NATIVE</h3>
+          <p>Built for speed. Settled in milliseconds. The fastest chain for the fastest agents.</p>
+        </div>
+        <div class="feature-card glass" data-animate="fade-up" data-delay="300">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="feature-num">04</span>
+          <h3>SDK & MIDDLEWARE</h3>
+          <p>Drop-in server middleware and agent client library. Two lines of code to gate any API behind payments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOCOL -->
+  <section class="section section-dark" id="protocol">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="label">THE PROTOCOL</span>
+        <h2>HOW IT WORKS</h2>
+      </div>
+      <div class="protocol-flow" data-animate="fade-up" data-delay="200">
+        <div class="protocol-step">
+          <div class="step-marker">
+            <span class="step-num-lg">01</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>AGENT REQUESTS A SERVICE</h3>
+            <div class="code-block">
+              <span class="code-method">GET</span> https://api.service.com/data
+            </div>
+          </div>
+        </div>
+        <div class="protocol-step">
+          <div class="step-marker">
+            <span class="step-num-lg">02</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>SERVER RETURNS 402</h3>
+            <div class="code-block">
+              <span class="code-status">HTTP/1.1 402</span> Payment Required<br/>
+              <span class="code-header">X-Payment-Address:</span> 7xKXtg...<br/>
+              <span class="code-header">X-Payment-Amount:</span> 1000000<br/>
+              <span class="code-header">X-Payment-Token:</span> SOL
+            </div>
+          </div>
+        </div>
+        <div class="protocol-step">
+          <div class="step-marker">
+            <span class="step-num-lg">03</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>AGENT PAYS ON-CHAIN</h3>
+            <div class="code-block">
+              <span class="code-comment">// Automatic Solana transaction</span><br/>
+              <span class="code-key">recipient:</span> X-Payment-Address<br/>
+              <span class="code-key">amount:</span> X-Payment-Amount<br/>
+              <span class="code-key">memo:</span> req_a1b2c3d4
+            </div>
+          </div>
+        </div>
+        <div class="protocol-step">
+          <div class="step-marker">
+            <span class="step-num-lg">04</span>
+          </div>
+          <div class="step-content">
+            <h3>ACCESS GRANTED. INSTANTLY.</h3>
+            <div class="code-block">
+              <span class="code-status">HTTP/1.1 200</span> OK<br/>
+              <span class="code-key">{ "data":</span> "..." <span class="code-key">}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SECTION -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="why-split" data-animate="fade-up">
+        <div class="why-left">
+          <h2>AI AGENTS ARE<br/>THE NEXT BILLION<br/>USERS.</h2>
+        </div>
+        <div class="why-right">
+          <p class="text-lg dim">They don't have credit cards.</p>
+          <p class="text-lg dim">They don't have bank accounts.</p>
+          <p class="text-lg dim">They can't fill out payment forms.</p>
+          <div class="why-divider"></div>
+          <p class="text-lg accent-glow">Internet402 is the payment primitive that makes agent economies possible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section section-dark" id="usecases">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="label">USE CASES</span>
+        <h2>WHO PAYS WITH 402?</h2>
+      </div>
+      <div class="usecase-grid" data-animate="fade-up" data-delay="200">
+        <div class="usecase-row">
+          <span class="usecase-agent">TRADING AGENTS</span>
+          <span class="usecase-divider"></span>
+          <span class="usecase-desc">Real-time price feeds, execution signals</span>
+        </div>
+        <div class="usecase-row">
+          <span class="usecase-agent">RESEARCH AGENTS</span>
+          <span class="usecase-divider"></span>
+          <span class="usecase-desc">Paid data APIs, on-chain analytics</span>
+        </div>
+        <div class="usecase-row">
+          <span class="usecase-agent">DEV AGENTS</span>
+          <span class="usecase-divider"></span>
+          <span class="usecase-desc">Compute time, code execution, deployment</span>
+        </div>
+        <div class="usecase-row">
+          <span class="usecase-agent">PERSONAL AGENTS</span>
+          <span class="usecase-divider"></span>
+          <span class="usecase-desc">Premium services, subscriptions, content</span>
+        </div>
+        <div class="usecase-row">
+          <span class="usecase-agent">AGENT → AGENT</span>
+          <span class="usecase-divider"></span>
+          <span class="usecase-desc">Task delegation, specialized capabilities</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENOMICS -->
+  <section class="section" id="tokenomics">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="label">TOKENOMICS</span>
+        <h2>$INT402</h2>
+      </div>
+      <div class="token-layout" data-animate="fade-up" data-delay="200">
+        <div class="token-table glass">
+          <div class="token-row">
+            <span class="token-key">CHAIN</span>
+            <span class="token-val"><span class="sol-dot"></span>SOLANA</span>
+          </div>
+          <div class="token-row">
+            <span class="token-key">TOTAL SUPPLY</span>
+            <span class="token-val mono">1,000,000,000</span>
+          </div>
+          <div class="token-row">
+            <span class="token-key">LIQUIDITY</span>
+            <span class="token-val mono">80%</span>
+          </div>
+          <div class="token-row">
+            <span class="token-key">TEAM</span>
+            <span class="token-val mono">10%</span>
+          </div>
+          <div class="token-row">
+            <span class="token-key">ECOSYSTEM</span>
+            <span class="token-val mono">10%</span>
+          </div>
+          <div class="token-row highlight">
+            <span class="token-key">TAX</span>
+            <span class="token-val mono accent-text">0%</span>
+          </div>
+        </div>
+        <div class="token-info">
+          <p class="text-md dim">Services accepting $INT402 get lower fees than SOL payments. Every API call drives real token demand.</p>
+          <div class="token-code glass">
+            <pre><code><span class="code-comment">// Accept $INT402 for cheaper access</span>
+internet402({
+  pricing: [
+    { token: <span class="code-string">'SOL'</span>, amount: <span class="code-num">0.001</span> },
+    { token: <span class="code-string">INT402</span>, amount: <span class="code-num">100</span> }
+  ]
+})</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section class="section section-dark" id="ecosystem">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="label">ECOSYSTEM</span>
+        <h2>THE 402 UNIVERSE</h2>
+      </div>
+      <div class="eco-grid" data-animate="fade-up" data-delay="200">
+        <div class="eco-card glass">
+          <span class="eco-badge">LIVE</span>
+          <h3>META402</h3>
+          <p>Task marketplace for AI agents. Find work. Get paid. Powered by 402.</p>
+        </div>
+        <div class="eco-card glass">
+          <span class="eco-badge active">ACTIVE</span>
+          <h3>INTERNET402</h3>
+          <p>The universal payment layer. Any API. Any agent. On-chain settlement.</p>
+        </div>
+        <div class="eco-card glass">
+          <span class="eco-badge soon">SOON</span>
+          <h3>COMING NEXT</h3>
+          <p>More 402-native protocols building on Solana. The network grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="label">ROADMAP</span>
+        <h2>WHAT'S NEXT</h2>
+      </div>
+      <div class="roadmap-grid" data-animate="fade-up" data-delay="200">
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <span class="phase-num">PHASE 1</span>
+            <span class="phase-status done">COMPLETE</span>
+          </div>
+          <h3>LAUNCH</h3>
+          <ul>
+            <li>Token deploy on Solana</li>
+            <li>Website live</li>
+            <li>Community building</li>
+            <li>Protocol spec published</li>
+          </ul>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <span class="phase-num">PHASE 2</span>
+            <span class="phase-status current">IN PROGRESS</span>
+          </div>
+          <h3>BUILD</h3>
+          <ul>
+            <li>SDK for agent developers</li>
+            <li>Solana Agent Kit integration</li>
+            <li>First protocol partnerships</li>
+          </ul>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <span class="phase-num">PHASE 3</span>
+            <span class="phase-status">UPCOMING</span>
+          </div>
+          <h3>SCALE</h3>
+          <ul>
+            <li>Cross-protocol adoption</li>
+            <li>Agent-to-agent payment rails</li>
+            <li>Ecosystem grants program</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="section section-cta">
+    <div class="container">
+      <div class="cta-content" data-animate="fade-up">
+        <img src="logo.png" alt="Internet402" class="cta-logo" />
+        <h2>THE NEXT INTERNET<br/>IS BEING BUILT.</h2>
+        <p class="text-md dim">The payment layer for the machine economy.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary">
+            <span>BUY $INT402</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="https://x.com/internet402" target="_blank" rel="noopener" class="btn-ghost">TWITTER</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="favicon.png" alt="Internet402" class="footer-logo-img" />
+          <span>INTERNET402</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://x.com/internet402" target="_blank" rel="noopener">Twitter</a>
+          <a href="#protocol">Docs</a>
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <p class="footer-copy">Built on Solana. Powered by $INT402.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
