@@ -231,4 +231,21 @@
   }, { threshold: 0.5 });
 
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+  // ===== COPY CA ADDRESS =====
+  const caEl = document.getElementById('caAddress');
+  if (caEl) {
+    caEl.addEventListener('click', () => {
+      const ca = caEl.textContent;
+      navigator.clipboard.writeText(ca).then(() => {
+        const original = caEl.textContent;
+        caEl.textContent = 'COPIED!';
+        caEl.classList.add('copied');
+        setTimeout(() => {
+          caEl.textContent = original;
+          caEl.classList.remove('copied');
+        }, 1500);
+      });
+    });
+  }
 })();
